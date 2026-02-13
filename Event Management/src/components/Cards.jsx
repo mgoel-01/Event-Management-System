@@ -1,6 +1,11 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import {  Calendar , Clock, MapPin } from 'lucide-react';
 const Cards = () => {
+  const navigate=useNavigate();
+  const BookNow=()=>{
+    navigate("/details");
+  }
   return (
     <div className='card'>
       <div className="upperPart">
@@ -17,7 +22,7 @@ const Cards = () => {
 
       <div className='bottomPart'>
         <p>$69.69</p>
-        <button>Book Now</button>
+        <button onClick={BookNow}>Book Now</button>
       </div>
 
     </div>
