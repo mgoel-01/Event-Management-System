@@ -2,9 +2,12 @@ import "./Details.css";
 import dateLogo from "../../assets/calendar.png";
 import timeLogo from "../../assets/clock.png";
 import venueLogo from "../../assets/location.png";
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
-let Details= ()=>{
+let Details= (props)=>{
+
+    const navigate = useNavigate();
 
      const pricePerTicket = 299;
     const serviceRate = 0.10; // 10%
@@ -26,36 +29,58 @@ let Details= ()=>{
     const total = subtotal + serviceFee;
 
 
+    console.log(props.events) ;
+    const [selected, setSelected] = useState({})
+
+    useEffect( () =>
+    {
+            const storedId = localStorage.getItem("id");
+
+            if (storedId) 
+            {
+                const foundEvent = props.events.find(
+                (elem) => elem.id === parseInt(storedId)
+            );
+            setSelected(foundEvent);
+            }   
+        console.log("The element is found" , selected) ;    
+    } ) ;
+
 
     return(
         <div id="details">
             
             <header>
                 <div id="back">
-                    <a href="">⬅️Back To Events</a>
+                    <span
+  style={{ cursor: "pointer" }}
+  onClick={() => navigate(-1)}
+>
+  ⬅️ Back To Events
+</span>
                 </div>
             </header>
 
             <div id="mid">
                     <div id="detailed-card">
                         <div id="img-card">
-                            <img id="image" src="https://images.unsplash.com/photo-1770387795112-e2b476b15f71?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            <img id="image" src={selected.url} alt="" />
                         </div>
                         <div id="event-details">
-                                <h1>Event Name</h1>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, minus quos fugit quam magni nesciunt provident neque, doloribus quaerat dolor eligendi ipsa, excepturi at nostrum porro. Adipisci praesentium animi explicabo!</p>
+                                <h1>{selected.title}</h1>
+                                <p>{selected.description}</p>
                                 <div className="event-logos">
                                         <div className="logo-row">
                                             <img src={dateLogo} alt="Date: " className="logo" />
-                                            <span>20 February 2026</span>
+                                            <span>{selected.date}</span>
                                         </div>
                                         <div className="logo-row">
                                             <img src={timeLogo} alt="Time: " className="logo" />
-                                            <span>03:00 P.M</span>
+                                            <span>{selected.time}</span>
                                         </div>
                                         <div className="logo-row">
                                             <img src={venueLogo} alt="Venue: " className="logo" />
-                                            <span>M.G Auditorium</span>
+                                            <span>{selected.location}</span>
                                         </div>
                                         {/* <a href="reg.html">Click here to register</a> */}
                                                     <div id="ticket-box">
@@ -66,16 +91,16 @@ let Details= ()=>{
 
                                                                     <div id="ticket-row">
                                                                          <div id="ticket-info">
-                                                                            <span class="ticket-title">General Admission</span>
-                                                                            <span class="ticket-price">$299 per ticket</span>
+                                                                            <span className="ticket-title">General Admission</span>
+                                                                            <span className="ticket-price">$299 per ticket</span>
                                                                         </div>
 
                                                                         <div id="ticket-controls">
-                                                                            <button class="qty-btn"
+                                                                            <button className="qty-btn"
                                                                             onClick={decreaseQty}
                                                                             >−</button>
                                                                             <span id="quantity">{quantity}</span>
-                                                                            <button class="qty-btn"
+                                                                            <button className="qty-btn"
                                                                             onClick={increaseQty}
                                                                             >+</button>
                                                                         </div>
@@ -88,7 +113,7 @@ let Details= ()=>{
 
                                                         <div id="bill">
 
-                                                                <div class="bill-row">
+                                                                <div className="bill-row">
                                                                     <span>
                                                                         Subtotal ({quantity} ticket{quantity > 1 ? "s" : ""})
                                                                     </span>
@@ -97,7 +122,7 @@ let Details= ()=>{
                                                                     </span>
                                                                 </div>
 
-                                                                <div class="bill-row">
+                                                                <div className="bill-row">
                                                                     <span>Service Fee</span>
                                                                     <span>
                                                                         ${serviceFee.toFixed(2)}
@@ -106,7 +131,7 @@ let Details= ()=>{
 
                                                                 <hr />
 
-                                                                <div class="bill-total">
+                                                                <div className="bill-total">
                                                                     <span>Total</span>
                                                                     <span id="total-price">
                                                                         ${total.toFixed(2)}
