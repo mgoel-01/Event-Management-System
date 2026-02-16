@@ -6,18 +6,14 @@ const Signup= ()=>{
                 <div id="signup-box">
                     <h2 id="signup-app-title">EventBooking.com</h2>
                     <h3 id="signup-title">Create Account</h3>
-                <label htmlFor="email">Email Address: </label>
+                    <label htmlFor="email">Email Address: </label>
                     <input type="email" id="email" />
-                <br />
-                <br />
-                <label htmlFor="pass"> Create a strong password:   </label>
-                <input type="password" id="pass"/>
-                <br />
-                <br />
-                <div id="buttonContainer">
-                <button type="submit" id="signup-btn">Continue</button>
+                    <label htmlFor="pass"> Create a strong password:   </label>
+                    <input type="password" id="pass"/>
+                    <div id="buttonContainer">
+                        <button type="submit" id="signup-btn">Continue</button>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
     )
