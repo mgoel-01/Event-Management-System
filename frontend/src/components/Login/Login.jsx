@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () =>
 {
     const navigate= useNavigate();
-    const handleLogin=async(e)=>{
+    const handleLogin = async(e) =>
+    {
         e.preventDefault();
         console.log("Login Button Clicked");
         const email=document.getElementById("email").value;
@@ -32,24 +33,22 @@ const Login = () =>
     };
     return (
          <div id="loginpage">
-            <form onSubmit={handleLogin}>
-                <div id="box">
-                    <h2 id="login-app-title">EventBooking.com</h2>
-                    <h3 id="login-title">Login</h3>
-                <label htmlFor="email">Email Address: </label>
-                    <input type="email" id="email" />
-                <br />
-                <br />
-                <label htmlFor="pass">Password:   </label>
-                <input type="password" id="pass"/>
-                <br />
-                <br />
-                <div id="buttonContainer">
-                <button type="submit" id="login">Login</button>
-                </div>
-                <Link to="/signup" id="signup">Don't have an account? Sign Up!</Link>
-            </div>
-            </form>
+                <form onSubmit={handleLogin}>
+                    <div id="box">
+                        {/* <h2 id="login-app-title">EventBooking.com</h2> */}
+                        <h3 id="login-title">Login</h3>
+                        <label htmlFor="email">Email Address: </label>
+                        <input type="email" id="email" />
+                        <label htmlFor="pass">Password:   </label>
+                        <input type="password" id="pass"/>
+                        <div id="buttonContainer">
+                            <button type="submit" id="login">Login</button>
+                        </div>
+
+                    <Link to="/signup" id="signup">Don't have an account? Sign Up!</Link>
+
+                    </div>
+                </form>
          </div>
     )
 }
