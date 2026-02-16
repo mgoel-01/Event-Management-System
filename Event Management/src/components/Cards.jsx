@@ -11,7 +11,6 @@ const handleLoginBook = (e) =>
           e.preventDefault() ;
           navigate("/details") ;
         }
-
   return (
     <div className='card'>
       <div className="upperPart">
@@ -28,7 +27,12 @@ const handleLoginBook = (e) =>
 
       <div className='bottomPart'>
         <p>${props.price}</p>
-<button onClick={() => navigate(`/details/${props.id}`)}>
+<button onClick={ () => 
+  {
+    navigate(`/details/${props.id}`)
+    localStorage.setItem("id" , props.id) ;
+  }
+  }>
   Book Now
 </button>
       </div>

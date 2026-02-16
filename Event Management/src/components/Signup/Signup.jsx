@@ -1,8 +1,18 @@
 import "./Signup.css"
+import { useNavigate } from "react-router-dom"
+
 const Signup= ()=>{
+
+     const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/dashboard");
+    }
+
     return(
         <div id="signup-page">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div id="signup-box">
                     <h2 id="signup-app-title">EventBooking.com</h2>
                     <h3 id="signup-title">Create Account</h3>
@@ -18,4 +28,4 @@ const Signup= ()=>{
         </div>
     )
 }
-export default Signup
+export default Signup 
