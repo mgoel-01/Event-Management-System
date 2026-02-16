@@ -2,14 +2,37 @@ import "./Details.css";
 import dateLogo from "../../assets/calendar.png";
 import timeLogo from "../../assets/clock.png";
 import venueLogo from "../../assets/location.png";
+import { useState } from "react";
 
 let Details= ()=>{
+
+     const pricePerTicket = 299;
+    const serviceRate = 0.10; // 10%
+
+    const [quantity, setQuantity] = useState(1);
+
+    const increaseQty = () => {
+        setQuantity(prev => prev + 1);
+    };
+
+    const decreaseQty = () => {
+        if (quantity > 1) {
+            setQuantity(prev => prev - 1);
+        }
+    };
+
+    const subtotal = quantity * pricePerTicket;
+    const serviceFee = subtotal * serviceRate;
+    const total = subtotal + serviceFee;
+
+
+
     return(
         <div id="details">
             
             <header>
                 <div id="back">
-                    <a href="cards.html">⬅️Back To Events</a>
+                    <a href="">⬅️Back To Events</a>
                 </div>
             </header>
 
@@ -34,7 +57,7 @@ let Details= ()=>{
                                             <img src={venueLogo} alt="Venue: " className="logo" />
                                             <span>M.G Auditorium</span>
                                         </div>
-                                        <a href="reg.html">Click here to register</a>
+                                        {/* <a href="reg.html">Click here to register</a> */}
                                                     <div id="ticket-box">
                                                         <div id="counterTicket">
                                                                 <h3>Select Tickets</h3>
@@ -48,9 +71,13 @@ let Details= ()=>{
                                                                         </div>
 
                                                                         <div id="ticket-controls">
-                                                                            <button class="qty-btn">−</button>
-                                                                            <span id="quantity">1</span>
-                                                                            <button class="qty-btn">+</button>
+                                                                            <button class="qty-btn"
+                                                                            onClick={decreaseQty}
+                                                                            >−</button>
+                                                                            <span id="quantity">{quantity}</span>
+                                                                            <button class="qty-btn"
+                                                                            onClick={increaseQty}
+                                                                            >+</button>
                                                                         </div>
                                                                     </div>
 
@@ -62,20 +89,28 @@ let Details= ()=>{
                                                         <div id="bill">
 
                                                                 <div class="bill-row">
-                                                                    <span>Subtotal (1 ticket)</span>
-                                                                    <span>$299.00</span>
+                                                                    <span>
+                                                                        Subtotal ({quantity} ticket{quantity > 1 ? "s" : ""})
+                                                                    </span>
+                                                                    <span>
+                                                                        ${subtotal.toFixed(2)}
+                                                                    </span>
                                                                 </div>
 
                                                                 <div class="bill-row">
                                                                     <span>Service Fee</span>
-                                                                    <span>$29.90</span>
+                                                                    <span>
+                                                                        ${serviceFee.toFixed(2)}
+                                                                    </span>
                                                                 </div>
 
                                                                 <hr />
 
                                                                 <div class="bill-total">
                                                                     <span>Total</span>
-                                                                    <span id="total-price">$328.90</span>
+                                                                    <span id="total-price">
+                                                                        ${total.toFixed(2)}
+                                                                    </span>
                                                                 </div>
 
                                                                 <button id="checkout-btn">
