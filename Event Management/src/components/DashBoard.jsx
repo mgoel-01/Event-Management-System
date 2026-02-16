@@ -3,10 +3,8 @@ import Cards from './Cards'
 import SectionBar from './SectionBar'
 
 const DashBoard = (props) => {
-  //so props.events is the array 
-  // console.log(props.events) ;
   return (
-    <>
+    <div id="dashboard">
       <h1>Discover Events</h1>
       <SectionBar />
       <div className="cardContainer">
@@ -15,7 +13,7 @@ const DashBoard = (props) => {
                       return <Cards id = {idx} key={idx} tag={elem.category} title={elem.title} url = {elem.url} date ={elem.date} time={elem.time} location={elem.location} price={elem.price}/>
                     })}
       </div>
-    </>
+    </div>
   )
 }
 
