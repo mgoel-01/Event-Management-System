@@ -19,7 +19,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.get("/",(req,res)=>{
     res.send("Backend is running");
-});
+}); 
 app.use("/api/events",eventRoutes);
 
 mongoose.connect(process.env.MONGO_URI).then(()=> console.log("MongoDB Connected")).catch((error)=>console.log(error));

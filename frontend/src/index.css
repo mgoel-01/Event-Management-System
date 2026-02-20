@@ -13,7 +13,64 @@ html, body , #root
 body {
     font-family: 'Poppins', sans-serif;
 }
-
+#navbar{
+    margin: 0;
+    padding: 0px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #1f2937;
+}
+#navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#navbar-logo{
+    padding: 10px;
+}
+#navbar-logo img{
+    height: 45px;
+    width: auto;
+    cursor: pointer;
+}
+.navbar-title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+#navbar-content{
+    display: flex;
+    flex-direction: row;
+    /* gap: 15px; */
+}
+#navbar-content a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 1.15rem;
+    padding: 0px 30px;
+    transition: 0.2s ease;
+}
+.logout {
+    color: #ef4444;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+#navbar-content a.active {
+    border-bottom: 2px solid white;
+}
+#navbar-content a:hover {
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+.logout:hover {
+    color: #dc2626; 
+}
 #dashboard
 {
     width: 100%;
@@ -34,7 +91,7 @@ body {
     width: 100%;
     height: 30px;
     background-color: #f4f9ff;
-    margin: 20px 10px;
+    margin: 20px 0px;
 }
 .sectionBar h3
 {
@@ -69,7 +126,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 20px;
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: 0.3s ease;

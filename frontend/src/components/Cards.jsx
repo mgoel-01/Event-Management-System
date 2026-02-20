@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import {  Calendar , Clock, MapPin } from 'lucide-react';
 import { Link } from "react-router-dom";
-// import { useNavigate } from 'react-router-dom';
 const Cards = (props) => {
 
   // console.log(props);   

@@ -4,8 +4,9 @@ import DashBoard from './components/DashBoard'
 import Login from "./components/Login/Login.jsx"
 import Details from "./components/Details/Details.jsx";
 import Signup from "./components/Signup/Signup.jsx"
+import Navbar from "./components/Navbar.jsx"
 import {Routes,Route} from "react-router-dom"
-
+import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 
 const events = [
@@ -126,16 +127,21 @@ const events = [
 
 
 const App = () => {
+  const location=useLocation();
+
   return (
-       <Routes>
+    <>
+         {location.pathname !== "/login" &&
+          location.pathname !== "/signup" && <Navbar />}
+    <Routes>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/details" element={<Details/>}/>
+            {/* <Route path="/details" element={<Details/>}/> */}
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/dashboard" element={<DashBoard events={events}/>}/>
             <Route path="/details/:id" element={<Details />} />
             <Route path="/" element={<Navigate to="/login" />} />
          </Routes>
-      
+      </>
   )
 }
 
