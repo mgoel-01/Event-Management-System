@@ -34,6 +34,7 @@ body
     flex-direction: column;
     justify-content: center;
 }
+
 #login-app-title
 {
     text-align: center;
@@ -48,6 +49,7 @@ body
     font-weight: 700;
     margin-bottom: 15px;
 }
+
 label 
 {
     font-size: 18px;

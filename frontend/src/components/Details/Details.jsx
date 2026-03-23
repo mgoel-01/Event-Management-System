@@ -3,13 +3,14 @@
     import timeLogo from "../../assets/clock.png";
     import venueLogo from "../../assets/location.png";
     import { useState , useEffect} from "react";
-    import { useNavigate } from "react-router-dom";
+    import { useNavigate, useParams } from "react-router-dom";
     
     let Details= (props)=>{
-
+        const [selected, setSelected] = useState(null)
+        const {id}=useParams();
         const navigate = useNavigate();
 
-        const pricePerTicket = 299;
+        const pricePerTicket = selected?.price || 0;
         const serviceRate = 0.10; // 10%
 
         const [quantity, setQuantity] = useState(1);
@@ -29,27 +30,24 @@
         const total = subtotal + serviceFee;
 
 
-        console.log(props.events) ;
-        const [selected, setSelected] = useState({})
+        console.log("Events:", props.events);
+        console.log("ID from URL:", id);
 
         useEffect(() => {
-        if (!props.events || props.events.length === 0) return;
+            if (!props.events || props.events.length === 0) return;
 
-        const storedId = localStorage.getItem("id");
-
-        if (storedId) {
             const foundEvent = props.events.find(
-                (elem) => elem.id === parseInt(storedId)
+                (elem) => elem.id === parseInt(id)
             );
 
             if (foundEvent) {
                 setSelected(foundEvent);
             }
+        }, [props.events, id]);
+
+        if (!selected) {
+            return <div>Loading...</div>;
         }
-    }, [props.events]);
-
-
-
         return(
             <div id="details">
                 
@@ -95,7 +93,7 @@
                                                                         <div id="ticket-row">
                                                                             <div id="ticket-info">
                                                                                 <span className="ticket-title">General Admission</span>
-                                                                                <span className="ticket-price">$299 per ticket</span>
+                                                                                <span className="ticket-price">Rs. {pricePerTicket} per ticket</span>
                                                                             </div>
 
                                                                             <div id="ticket-controls">
@@ -121,14 +119,14 @@
                                                                             Subtotal ({quantity} ticket{quantity > 1 ? "s" : ""})
                                                                         </span>
                                                                         <span>
-                                                                            ${subtotal.toFixed(2)}
+                                                                            Rs. {subtotal.toFixed(2)}
                                                                         </span>
                                                                     </div>
 
                                                                     <div className="bill-row">
                                                                         <span>Service Fee</span>
                                                                         <span>
-                                                                            ${serviceFee.toFixed(2)}
+                                                                            Rs. {serviceFee.toFixed(2)}
                                                                         </span>
                                                                     </div>
 
@@ -137,7 +135,7 @@
                                                                     <div className="bill-total">
                                                                         <span>Total</span>
                                                                         <span id="total-price">
-                                                                            ${total.toFixed(2)}
+                                                                            Rs. {total.toFixed(2)}
                                                                         </span>
                                                                     </div>
 

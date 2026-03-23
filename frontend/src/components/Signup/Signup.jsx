@@ -7,6 +7,7 @@ const Signup= ()=>{
         e.preventDefault();
         const name=document.getElementById("name").value;
         const email=document.getElementById("email").value;
+        const role=document.getElementById("role").value;
         const password=document.getElementById("pass").value;
         try{
             const response=await fetch("http://localhost:5000/api/auth/signup",{
@@ -14,7 +15,7 @@ const Signup= ()=>{
                 headers:{
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({name,email,password})
+                body: JSON.stringify({name,email,role,password})
             });
             const data= await response.json();
             if(response.ok){
@@ -39,6 +40,14 @@ const Signup= ()=>{
                 <input type="text" id="name" autoComplete="off"/>
                 <label htmlFor="email">Email Address: </label>
                     <input type="email" id="email" autoComplete="off"/>
+                <br />
+                <div id="signup-role">
+                <label htmlFor="role">Role:</label>
+                <select name="role" id="role">
+                    <option value="attendee">Attendee</option>
+                    <option value="organizer">Organizer</option>
+                </select>
+                </div>
                 <br />
                 <br />
                 <label htmlFor="pass"> Create a strong password:   </label>
