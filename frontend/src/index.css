@@ -13,6 +13,8 @@ html, body , #root
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+/*NAVBAR*/
 #navbar{
     margin: 0;
     padding: 0px 10px;
@@ -71,6 +73,11 @@ body {
 .logout:hover {
     color: #dc2626; 
 }
+
+
+/* DASHBOARD */
+
+
 #dashboard
 {
     width: 100%;
@@ -107,6 +114,10 @@ body {
     background-color: #0284c7;
     color: white;
 }
+
+/* CARD */
+
+
 .cardContainer
 {
     width: 100%;

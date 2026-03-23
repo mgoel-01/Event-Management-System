@@ -21,7 +21,13 @@ const Login = () =>
             const data=await response.json();
             if(response.ok){
                 localStorage.setItem("token",data.token);
-                navigate("/dashboard");
+                localStorage.setItem("user",JSON.stringify(data.user));
+                if(data.user.role==="organizer"){
+                    navigate("/organizer/dashboard")
+                }
+                else  if(data.user.role==="attendee"){
+                    navigate("/dashboard");
+                }
             }
             else{
                 alert(data.message);

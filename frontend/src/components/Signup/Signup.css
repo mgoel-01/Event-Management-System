@@ -51,7 +51,11 @@ input
     font-size: 14px;
     transition: 0.2s ease;
 }
-
+#signup-role{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
  input:focus
 {
     border-color: #2563eb;

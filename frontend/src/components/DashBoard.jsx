@@ -20,7 +20,7 @@ const DashBoard = (props) => {
       <div className="cardContainer">
         {props.events.map((elem,idx)=>
                     {
-                      return <Cards id = {idx} key={idx} tag={elem.category} title={elem.title} url = {elem.url} date ={elem.date} time={elem.time} location={elem.location} price={elem.price}/>
+                      return <Cards id = {elem.id} key={elem.id} tag={elem.category} title={elem.title} url = {elem.url} date ={elem.date} time={elem.time} location={elem.location} price={elem.price}/>
                     })}
       </div>
     </div>

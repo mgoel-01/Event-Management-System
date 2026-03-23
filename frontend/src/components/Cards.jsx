@@ -26,7 +26,7 @@ const handleLoginBook = (e) =>
       </div>
 
       <div className='bottomPart'>
-        <p>${props.price}</p>
+        <p>Rs. {props.price}</p>
 <button onClick={ () => 
   {
     navigate(`/details/${props.id}`)
