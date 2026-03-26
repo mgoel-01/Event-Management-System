@@ -3,8 +3,9 @@ import Cards from './components/Cards'
 import DashBoard from './components/DashBoard'
 import Login from "./components/Login/Login.jsx"
 import Details from "./components/Details/Details.jsx";
-import Signup from "./components/Signup/Signup.jsx"
-import Navbar from "./components/Navbar.jsx"
+import Signup from "./components/Signup/Signup.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Profile from "./components/Profile.jsx";
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
@@ -140,6 +141,8 @@ const App = () => {
             <Route path="/dashboard" element={<DashBoard events={events}/>}/>
             <Route path="/details/:id" element={<Details events={events}/>} />
             <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/profile" element={<Profile />} />
+
          </Routes>
       </>
   )

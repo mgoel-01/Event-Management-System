@@ -1,15 +1,19 @@
-import React from 'react'
+const SectionBar = ({ setSelectedCategory, selectedCategory }) => {
+  const categories = ["All", "Music", "Technology", "Sports", "Art", "Food"];
 
-const SectionBar = () => {
   return (
     <div className="sectionBar">
-        <h3>All</h3>
-        <h3>Music</h3>
-        <h3>Technology</h3>
-        <h3>Sports</h3>
-        <h3>Art</h3>
+      {categories.map((cat) => (
+        <button
+          key={cat}
+          onClick={() => setSelectedCategory(cat)}
+          className={selectedCategory === cat ? "active" : ""}
+        >
+          {cat}
+        </button>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default SectionBar
+export default SectionBar;

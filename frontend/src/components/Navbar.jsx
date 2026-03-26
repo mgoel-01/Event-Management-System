@@ -31,8 +31,8 @@ const Navbar= ()=>{
                 </div>
             </div>
             <div id="navbar-content">
-                <NavLink to="/dashboard" className="home">Home</NavLink>
-                <NavLink to="/" className="profile">Profile</NavLink>
+                <NavLink to="/dashboard" className="Home">Home</NavLink>
+                <NavLink to="/profile" className="Profile">Profile</NavLink>
                 <NavLink to="/" className="myBookings">My Bookings</NavLink>
                 <span to="/" className="logout" onClick={handleLogout}>Log Out</span>
             </div>

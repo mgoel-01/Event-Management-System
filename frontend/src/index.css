@@ -100,7 +100,7 @@ body {
     background-color: #f4f9ff;
     margin: 20px 0px;
 }
-.sectionBar h3
+.sectionBar button
 {
     padding: 3px 20px;
     cursor: pointer;
@@ -234,4 +234,79 @@ body {
     background-color: #1e40af;
 }
 
+/* Profile */
+/* Container */
+.profile-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
 
+/* Title */
+.profile-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Profile Info Card */
+.profile-info {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.profile-info h3 {
+  margin: 8px 0;
+}
+
+/* Section Titles */
+.profile-container h2 {
+  margin: 20px 0 10px;
+}
+
+/* Event Card */
+.event-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.event-card h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.event-card p {
+  margin: 5px 0 0;
+  color: #555;
+}
+
+/* Empty Text */
+.profile-container p {
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .profile-info {
+    padding: 15px;
+  }
+
+  .event-card {
+    padding: 12px;
+  }
+}

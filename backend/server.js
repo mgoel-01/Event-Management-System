@@ -8,7 +8,7 @@ const app=express();
 //Routes
 import authRoutes from "./routes/auth.js";
 import eventRoutes from "./routes/EventRoutes.js";
-
+import userRoutes from "./routes/userRoutes.js";
 
 
 //Middleware
@@ -21,6 +21,8 @@ app.get("/",(req,res)=>{
     res.send("Backend is running");
 }); 
 app.use("/api/events",eventRoutes);
+
+app.use("/api/users", userRoutes);
 
 mongoose.connect(process.env.MONGO_URI).then(()=> console.log("MongoDB Connected")).catch((error)=>console.log(error));
 app.listen(5000,"0.0.0.0",()=>{
