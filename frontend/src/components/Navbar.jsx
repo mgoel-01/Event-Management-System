@@ -5,8 +5,10 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Navbar= ()=>{
     const navigate=useNavigate();
+    const role=localStorage.getItem("role");
     const handleLogout=()=>{
         localStorage.removeItem("token");
+        localStorage.removeItem("role");
         navigate("/login")
     }
     const location=useLocation();
@@ -32,9 +34,15 @@ const Navbar= ()=>{
             </div>
             <div id="navbar-content">
                 <NavLink to="/dashboard" className="Home">Home</NavLink>
+                {role==="organizer"&&(
+                    <>
+                        <NavLink to="/my-events" className="myEvents">Your Events</NavLink>
+                        <NavLink to="/create-event" className="createEvent">Create Event</NavLink>
+                    </>
+                )}
                 <NavLink to="/profile" className="Profile">Profile</NavLink>
                 <NavLink to="/" className="myBookings">My Bookings</NavLink>
-                <span to="/" className="logout" onClick={handleLogout}>Log Out</span>
+                <span  className="logout" onClick={handleLogout}>Log Out</span>
             </div>
         </div>
     )

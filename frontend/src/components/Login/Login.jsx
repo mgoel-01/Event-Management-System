@@ -22,8 +22,9 @@ const Login = () =>
             if(response.ok){
                 localStorage.setItem("token",data.token);
                 localStorage.setItem("user",JSON.stringify(data.user));
+                localStorage.setItem("role", data.user.role);
                 if(data.user.role==="organizer"){
-                    navigate("/organizer/dashboard")
+                    navigate("/dashboard")
                 }
                 else  if(data.user.role==="attendee"){
                     navigate("/dashboard");

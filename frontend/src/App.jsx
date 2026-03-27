@@ -6,6 +6,9 @@ import Details from "./components/Details/Details.jsx";
 import Signup from "./components/Signup/Signup.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Profile from "./components/Profile.jsx";
+import OrganizerRoute from "./components/OrganizerRoutes.jsx";
+import MyEvents from "./components/MyEvents.jsx";
+import CreateEvent from "./components/CreateEvent.jsx";
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
@@ -142,6 +145,21 @@ const App = () => {
             <Route path="/details/:id" element={<Details events={events}/>} />
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/my-events"element={
+                <OrganizerRoute>
+                  <MyEvents />
+                </OrganizerRoute>
+              }
+            />
+
+            <Route
+              path="/create-event"
+              element={
+                <OrganizerRoute>
+                  <CreateEvent />
+                </OrganizerRoute>
+              }
+            />
 
          </Routes>
       </>
