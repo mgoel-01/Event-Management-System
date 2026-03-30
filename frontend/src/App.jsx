@@ -9,6 +9,10 @@ import Profile from "./components/Profile.jsx";
 import OrganizerRoute from "./components/OrganizerRoutes.jsx";
 import MyEvents from "./components/MyEvents.jsx";
 import CreateEvent from "./components/CreateEvent.jsx";
+import Payment from "./components/Payment";
+import Success from "./components/Success";
+import MyBookings from "./components/MyBookings.jsx";
+
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
@@ -143,7 +147,7 @@ const App = () => {
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/dashboard" element={<DashBoard events={events}/>}/>
             <Route path="/details/:id" element={<Details events={events}/>} />
-            <Route path="/" element={<Navigate to="/login" />} />
+            {/* <Route path="/" element={<Navigate to="/login" />} /> */}
             <Route path="/profile" element={<Profile />} />
             <Route path="/my-events"element={
                 <OrganizerRoute>
@@ -160,8 +164,11 @@ const App = () => {
                 </OrganizerRoute>
               }
             />
-
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/my-bookings" element={<MyBookings />} />
          </Routes>
+
       </>
   )
 }

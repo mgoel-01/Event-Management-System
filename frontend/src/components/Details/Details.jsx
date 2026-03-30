@@ -139,7 +139,13 @@
                                                                         </span>
                                                                     </div>
 
-                                                                    <button id="checkout-btn">
+                                                                    <button id="checkout-btn" onClick={() => navigate("/payment", {
+                                                                            state: {
+                                                                            event: selected,
+                                                                            quantity: quantity,
+                                                                            total: total
+                                                                            }
+                                                                        })}>
                                                                         Continue to Checkout
                                                                     </button>
 

@@ -87,6 +87,11 @@ body {
 {
     padding: 20px;
 }
+#dashboard h2{
+    text-align: center;
+    color: #c77202;
+
+}
 .sectionBar
 {
     display: flex;
@@ -233,7 +238,15 @@ body {
 {
     background-color: #1e40af;
 }
+.card.booked {
+  border: 2px solid green;
+  background-color: #e6ffe6;
+}
 
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
 /* Profile */
 /* Container */
 .profile-container {

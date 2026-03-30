@@ -19,7 +19,7 @@ const Navbar= ()=>{
     else if (location.pathname === "/profile") {
         pageTitle = "Profile";
     } 
-    else if (location.pathname === "/bookings") {
+    else if (location.pathname === "/my-bookings") {
         pageTitle = "My Bookings";
     }
     return(
@@ -41,7 +41,7 @@ const Navbar= ()=>{
                     </>
                 )}
                 <NavLink to="/profile" className="Profile">Profile</NavLink>
-                <NavLink to="/" className="myBookings">My Bookings</NavLink>
+                <NavLink to="/my-bookings" className="myBookings">My Bookings</NavLink>
                 <span  className="logout" onClick={handleLogout}>Log Out</span>
             </div>
         </div>

@@ -12,7 +12,7 @@ const handleLoginBook = (e) =>
           navigate("/details") ;
         }
   return (
-    <div className='card'>
+    <div className={`card ${props.isBooked ? "booked" : ""}`} >
       <div className="upperPart">
         <p className="tag">{props.tag}</p>
         <img src={props.url} alt="" />
@@ -27,14 +27,18 @@ const handleLoginBook = (e) =>
 
       <div className='bottomPart'>
         <p>Rs. {props.price}</p>
-<button onClick={ () => 
-  {
-    navigate(`/details/${props.id}`)
-    localStorage.setItem("id" , props.id) ;
-  }
-  }>
-  Book Now
-</button>
+      {props.isBooked ? (
+  <button disabled>Booked ✅</button>
+) : (
+  <button
+    onClick={() => {
+      navigate(`/details/${props.id}`);
+      localStorage.setItem("id", props.id);
+    }}
+  >
+    Book Now
+  </button>
+)}
       </div>
 
     </div>

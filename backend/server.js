@@ -9,7 +9,7 @@ const app=express();
 import authRoutes from "./routes/auth.js";
 import eventRoutes from "./routes/EventRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-
+import bookingRoutes from "./routes/booking.js";
 
 //Middleware
 app.use(cors());
@@ -23,6 +23,9 @@ app.get("/",(req,res)=>{
 app.use("/api/events",eventRoutes);
 
 app.use("/api/users", userRoutes);
+
+app.use("/api/bookings", bookingRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI).then(()=> console.log("MongoDB Connected")).catch((error)=>console.log(error));
 app.listen(5000,"0.0.0.0",()=>{
