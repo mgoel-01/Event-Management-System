@@ -1,0 +1,107 @@
+*
+ {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+body
+{
+    margin: 0 ;
+    padding: 0;
+    background-color: white;
+    padding: 20px;
+}
+
+#loginpage
+{
+    background-color: #eaf3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+}
+#box
+{
+    width: 45vw;
+    height: 55vh;   
+    padding: 20px 40px  ;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#login-app-title
+{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+#login-title    
+{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+label 
+{
+    font-size: 18px;
+    font-weight: 500;
+}
+input 
+{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none; 
+}
+
+input:focus
+{
+    border-color: #2563eb;
+}
+#buttonContainer
+{
+    margin-top: 12px ;
+    background-color: #eaf3ff;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1px;
+}
+button#login
+{
+width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+button#login:hover
+{
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+#signup
+{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+     font-size: 14px;
+     text-decoration: none;
+     color: #2563eb;
+}

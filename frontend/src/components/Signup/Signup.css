@@ -1,0 +1,87 @@
+body
+{
+     margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f3f6fb;
+}
+#signup-page
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px ;
+    background-color: #eaf3ff;
+}
+#signup-box
+{
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px black;
+}
+#signup-app-title
+{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+#signup-title
+{
+     text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+label
+{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+input 
+{
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+#signup-role{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ input:focus
+{
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    outline: none;
+} 
+ #buttonContainer
+{
+    margin-top: 10px;
+} 
+button#signup-btn
+{
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+button#signup-btn:hover
+{
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+

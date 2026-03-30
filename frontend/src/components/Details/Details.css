@@ -1,0 +1,223 @@
+html, body, #root {
+    margin: 0;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    background-color: #eaf3ff;
+}
+
+
+#details {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+#back {
+    display: flex;
+    align-items: center;
+    padding: 20px 120px;
+    background-color: #f4f9ff;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+#back a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+#mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+#detailed-card {
+    width: 100%;
+    max-width: 1100px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    display: flex;
+    overflow: hidden;
+}
+
+#img-card {
+    width: 45%;
+}
+
+#image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#event-details {
+    width: 55%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+#event-details h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#event-details p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.logo {
+    height: 18px;
+    width: 18px;
+}
+
+#event-details a {
+    margin-top: 30px;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#event-details a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99,102,241,0.3);
+}
+
+#ticket-box {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#counterTicket h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#ticket-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+#ticket-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.ticket-price {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+
+#ticket-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.qty-btn {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.qty-btn:hover {
+    background: #ececff;
+    border-color: #6366f1;
+}
+
+#quantity {
+    font-size: 16px;
+    font-weight: 600;
+}
+#availability {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
+}
+#bill {
+    background: #eef1ff;
+    padding: 25px;
+    border-radius: 18px;
+}
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.bill-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#total-price {
+    color: #5b3df5;
+    font-size: 20px;
+}
+#bill hr {
+    border: none;
+    border-top: 1px solid #cfd5ff;
+    margin: 10px 0 20px 0;
+}
+
+#checkout-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#checkout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99,102,241,0.3);
+}
