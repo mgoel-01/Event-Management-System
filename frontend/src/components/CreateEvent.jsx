@@ -28,7 +28,7 @@ const handleSubmit = async (e) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const response = await fetch(
-      "http://event-management-system-613m.onrender.com/api/events/create",
+      "https://event-management-system-613m.onrender.com/api/events/create",
       {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
           time: form.time,
           location: form.location,
           price: Number(form.price),
-          createdBy: user._id
+          createdBy: user.id
         })
       }
     );

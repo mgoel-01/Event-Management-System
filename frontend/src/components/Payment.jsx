@@ -30,7 +30,7 @@ const Payment = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          userId: user._id,           // 🔥 FIXED
+          userId: user.id,           // 🔥 FIXED
           eventId: event._id,         // 🔥 FIXED
           eventName: event.title,
           quantity: quantity,
