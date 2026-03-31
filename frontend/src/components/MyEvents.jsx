@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MyEvents = () => {
+  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/events");
-        const data = await res.json();
+  const fetchEvents = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/events");
+      const data = await res.json();
 
-        const user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem("user"));
 
-        // 🔥 show only events created by this user
-const myEvents = data.filter(
-  (event) => String(event.createdBy) === String(user.id)
-);
+      // 🔥 filter only my events
+      const myEvents = data.filter(
+        (event) => event.createdBy === user.id
+      );
 
-        setEvents(myEvents);
+      setEvents(myEvents);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  fetchEvents();
+}, []);
 
   const handleDelete = async (id) => {
     try {
@@ -62,7 +63,12 @@ await fetch(`http://localhost:5000/api/events/${id}`, {
             <h3>{event.title}</h3>
             <p>Date: {event.date}</p>
 
-            <button>Edit</button>
+            {/* Organizer controls */}
+<button onClick={() => navigate(`/edit-event/${event._id}`)}>
+  Edit
+</button>
+
+
 
             <button
               style={{ marginLeft: "10px", color: "red" }}

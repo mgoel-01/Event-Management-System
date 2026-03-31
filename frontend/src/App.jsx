@@ -12,6 +12,7 @@ import CreateEvent from "./components/CreateEvent.jsx";
 import Payment from "./components/Payment";
 import Success from "./components/Success";
 import MyBookings from "./components/MyBookings.jsx";
+import EditEvent from './components/EditEvent.jsx';
 
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
@@ -175,6 +176,7 @@ const App = () => {
             <Route path="/payment" element={<Payment />} />
             <Route path="/success" element={<Success />} />
             <Route path="/my-bookings" element={<MyBookings />} />
+            <Route path="/edit-event/:id" element={<EditEvent />} />
          </Routes>
 
       </>

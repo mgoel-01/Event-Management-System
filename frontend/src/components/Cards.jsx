@@ -12,6 +12,7 @@ const handleLoginBook = (e) =>
           e.preventDefault() ;
           navigate("/details") ;
         }
+        
   return (
     <div className={`card ${props.isBooked ? "booked" : ""}`} >
       <div className="upperPart">
@@ -35,7 +36,6 @@ const handleLoginBook = (e) =>
     <button
       onClick={() => {
         navigate(`/details/${props.id}`);
-        localStorage.setItem("id", props.id);
       }}
     >
       Book Now
@@ -45,10 +45,10 @@ const handleLoginBook = (e) =>
 
 {role === "organizer" && (
   <button
-    onClick={() => navigate(`/details/${props.id}`)}
-  >
-    View Details
-  </button>
+  onClick={() => navigate(`/details/${props.id}`)} // ✅ FIXED
+>
+  View Details
+</button>
 )}
       </div>
 

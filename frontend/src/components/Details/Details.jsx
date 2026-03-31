@@ -34,17 +34,19 @@
         console.log("ID from URL:", id);
 
         useEffect(() => {
-            if (!props.events || props.events.length === 0) return;
+  const fetchEvent = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/events/${id}`);
+      const data = await res.json();
 
-            const foundEvent = props.events.find(
-                (elem) => elem.id === parseInt(id)
-            );
+      setSelected(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-            if (foundEvent) {
-                setSelected(foundEvent);
-            }
-        }, [props.events, id]);
-
+  fetchEvent();
+}, [id]);
         if (!selected) {
             return <div>Loading...</div>;
         }

@@ -6,38 +6,54 @@ const Payment = () => {
 
   const { event, quantity, total } = location.state || {};
 
+  // ❌ If no data
   if (!event) {
     return <h2>No booking data found ❌</h2>;
   }
 
   const handlePayment = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/bookings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        userId: localStorage.getItem("userId") || "guest",
-        eventId: event.id,
-        eventName: event.title,
-        quantity: quantity,
-        totalAmount: total
-      })
-    });
+      // ✅ Get user from localStorage
+      const user = JSON.parse(localStorage.getItem("user"));
 
-    const data = await res.json();
+      // ✅ Prevent booking without login
+      if (!user) {
+        alert("Please login first");
+        navigate("/login");
+        return;
+      }
+
+      // ✅ API call
+      const res = await fetch("http://localhost:5000/api/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          userId: user._id,           // 🔥 FIXED
+          eventId: event._id,         // 🔥 FIXED
+          eventName: event.title,
+          quantity: quantity,
+          totalAmount: total
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Booking failed");
+      }
 
       alert("Payment Successful ✅");
 
+      // ✅ Redirect to success page
       navigate("/success");
 
     } catch (error) {
       console.error(error);
-      alert("Booking failed ❌");
+      alert(error.message || "Booking failed ❌");
     }
   };
-
 
   return (
     <div style={{ padding: "20px" }}>
