@@ -18,7 +18,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/events");
+        const res = await fetch("http://event-management-system-613m.onrender.com/api/events");
         const data = await res.json();
 
         setEvents(data);
@@ -44,7 +44,7 @@ const DashBoard = () => {
     const fetchBookings = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/bookings/user/${userId}`,
+          `http://event-management-system-613m.onrender.com/api/bookings/user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -24,7 +24,7 @@ const Payment = () => {
       }
 
       // ✅ API call
-      const res = await fetch("http://localhost:5000/api/bookings", {
+      const res = await fetch("https://event-management-system-613m.onrender.com/api/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

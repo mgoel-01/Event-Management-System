@@ -28,7 +28,7 @@ const handleSubmit = async (e) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const response = await fetch(
-      "http://localhost:5000/api/events/create",
+      "http://event-management-system-613m.onrender.com/api/events/create",
       {
         method: "POST",
         headers: {

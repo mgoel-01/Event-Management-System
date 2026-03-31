@@ -36,7 +36,7 @@
         useEffect(() => {
   const fetchEvent = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${id}`);
+      const res = await fetch(`http://event-management-system-613m.onrender.com/api/events/${id}`);
       const data = await res.json();
 
       setSelected(data);
