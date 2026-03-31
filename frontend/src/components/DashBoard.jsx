@@ -7,7 +7,7 @@ const DashBoard = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user")) || null;
-  const userId = user?._id;
+  const userId = user?.id;
   const role = localStorage.getItem("role");
 
   const [events, setEvents] = useState([]); // ✅ all events
@@ -18,7 +18,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://event-management-system-613m.onrender.com/api/events");
+        const res = await fetch("https://event-management-system-613m.onrender.com/api/events");
         const data = await res.json();
 
         setEvents(data);
@@ -44,7 +44,7 @@ const DashBoard = () => {
     const fetchBookings = async () => {
       try {
         const res = await fetch(
-          `http://event-management-system-613m.onrender.com/api/bookings/user/${userId}`,
+          `https://event-management-system-613m.onrender.com/api/bookings/user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -8,14 +8,15 @@ const MyEvents = () => {
   useEffect(() => {
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://event-management-system-613m.onrender.com/api/events");
+      const res = await fetch("https://event-management-system-613m.onrender.com/api/events");
       const data = await res.json();
 
       const user = JSON.parse(localStorage.getItem("user"));
 
       // 🔥 filter only my events
       const myEvents = data.filter(
-        (event) => event.createdBy === user.id
+        (event) => event.createdBy === user.id ||
+    event.createdBy?._id === user.id
       );
 
       setEvents(myEvents);
@@ -31,7 +32,7 @@ const MyEvents = () => {
     try {
       const token = localStorage.getItem("token");
 
-await fetch(`http://localhost:5000/api/events/${id}`, {
+await fetch(`https://event-management-system-613m.onrender.com/api/events/${id}`, {
   method: "DELETE",
   headers: {
     Authorization: `Bearer ${token}`
