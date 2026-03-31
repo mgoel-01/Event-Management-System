@@ -9,7 +9,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         const res = await fetch(
-          `http://event-management-system-613m.onrender.com/api/bookings/user/${userId}`
+          `https://event-management-system-613m.onrender.com/api/bookings/user/${userId}`
         );
 
         const data = await res.json();

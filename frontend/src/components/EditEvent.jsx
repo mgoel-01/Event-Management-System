@@ -20,7 +20,7 @@ const EditEvent = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await fetch(`http://event-management-system-613m.onrender.com/api/events`);
+        const res = await fetch(`https://event-management-system-613m.onrender.com/api/events`);
         const data = await res.json();
 
         const event = data.find(e => e._id === id);

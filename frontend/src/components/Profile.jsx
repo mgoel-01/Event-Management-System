@@ -8,7 +8,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://event-management-system-613m.onrender.com/api/users/profile", {
+      const res = await axios.get("https://event-management-system-613m.onrender.com/api/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`
         }
