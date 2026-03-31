@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
 
-  const userId = localStorage.getItem("userId") || "guest";
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.id;
+  if (!userId) {
+  return <h2>Please login first</h2>;
+}
   useEffect(() => {
     const fetchBookings = async () => {
       try {
