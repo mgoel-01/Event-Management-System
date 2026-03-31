@@ -1,5 +1,16 @@
 const SectionBar = ({ setSelectedCategory, selectedCategory }) => {
-  const categories = ["All", "Music", "Technology", "Sports", "Art", "Food"];
+  const categories = [
+  "All",
+  "Music",
+  "Technology",
+  "Food",
+  "Business",
+  "Workshop",
+  "Adventure",
+  "Entertainment", // NEW
+  "Art",           // NEW
+  "Sport"          // NEW
+];
 
   return (
     <div className="sectionBar">

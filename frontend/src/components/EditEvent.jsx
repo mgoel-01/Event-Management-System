@@ -52,7 +52,7 @@ const EditEvent = () => {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        `http://event-management-system-613m.onrender.com/api/events/${id}`,
+        `https://event-management-system-613m.onrender.com/api/events/${id}`,
         {
           method: "PUT",
           headers: {
