@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const CreateEvent = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: "",
-<<<<<<< HEAD
-    date: "",
-    location: ""
-=======
     category: "",
     date: "",
     time: "",
@@ -14,7 +11,6 @@ const CreateEvent = () => {
     price: "",
     image: "",
     description: ""
->>>>>>> origin/main
   });
 
   const handleChange = (e) => {
@@ -24,28 +20,6 @@ const CreateEvent = () => {
     });
   };
 
-<<<<<<< HEAD
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Event Created:", form);
-
-    // Later → send to backend
-    alert("Event Created Successfully!");
-
-    setForm({
-      title: "",
-      date: "",
-      location: ""
-    });
-  };
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>Create Event</h1>
-
-      <form onSubmit={handleSubmit} style={{ maxWidth: "400px" }}>
-=======
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -70,7 +44,7 @@ const handleSubmit = async (e) => {
           time: form.time,
           location: form.location,
           price: Number(form.price),
-          createdBy: user.id
+          createdBy: user._id
         })
       }
     );
@@ -79,7 +53,7 @@ const handleSubmit = async (e) => {
 
     if (response.ok) {
       alert("Event Created Successfully!");
-      window.location.href = "/my-events"; // go to MyEvents page
+      navigate("/dashboard"); // go to MyEvents page
     } else {
       alert(data.message || "Error creating event");
     }
@@ -96,7 +70,6 @@ const handleSubmit = async (e) => {
 
       <form onSubmit={handleSubmit} id="create-form">
 
->>>>>>> origin/main
         <input
           type="text"
           name="title"
@@ -105,9 +78,7 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
-<<<<<<< HEAD
         <br /><br />
-=======
 
         <select
           name="category"
@@ -123,7 +94,6 @@ const handleSubmit = async (e) => {
           <option value="Workshop">Workshop</option>
           <option value="Adventure">Adventure</option>
         </select>
->>>>>>> origin/main
 
         <input
           type="date"
@@ -132,9 +102,6 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
-<<<<<<< HEAD
-        <br /><br />
-=======
 
         <input
           type="time"
@@ -143,7 +110,6 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
->>>>>>> origin/main
 
         <input
           type="text"
@@ -153,9 +119,6 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
-<<<<<<< HEAD
-        <br /><br />
-=======
 
         <input
           type="number"
@@ -181,7 +144,6 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           rows="4"
         />
->>>>>>> origin/main
 
         <button type="submit">Create Event</button>
       </form>

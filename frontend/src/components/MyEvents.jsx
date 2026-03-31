@@ -1,40 +1,31 @@
-<<<<<<< HEAD
-import React from "react";
-
-const MyEvents = () => {
-  // TEMP: fake data (later replace with backend)
-  const events = [
-    { id: 1, title: "Music Fest", date: "2026-03-10" },
-    { id: 2, title: "Tech Meetup", date: "2026-03-15" }
-  ];
-=======
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MyEvents = () => {
+  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/events");
-        const data = await res.json();
+  const fetchEvents = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/events");
+      const data = await res.json();
 
-        const user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem("user"));
 
-        // 🔥 show only events created by this user
-const myEvents = data.filter(
-  (event) => String(event.createdBy) === String(user.id)
-);
+      // 🔥 filter only my events
+      const myEvents = data.filter(
+        (event) => event.createdBy === user.id
+      );
 
-        setEvents(myEvents);
+      setEvents(myEvents);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  fetchEvents();
+}, []);
 
   const handleDelete = async (id) => {
     try {
@@ -54,7 +45,6 @@ await fetch(`http://localhost:5000/api/events/${id}`, {
       console.log(err);
     }
   };
->>>>>>> origin/main
 
   return (
     <div style={{ padding: "20px" }}>
@@ -64,11 +54,7 @@ await fetch(`http://localhost:5000/api/events/${id}`, {
         <p>No events created yet.</p>
       ) : (
         events.map((event) => (
-<<<<<<< HEAD
-          <div key={event.id} style={{
-=======
           <div key={event._id} style={{
->>>>>>> origin/main
             border: "1px solid #ccc",
             padding: "10px",
             margin: "10px 0",
@@ -77,18 +63,17 @@ await fetch(`http://localhost:5000/api/events/${id}`, {
             <h3>{event.title}</h3>
             <p>Date: {event.date}</p>
 
-<<<<<<< HEAD
             {/* Organizer controls */}
-            <button>Edit</button>
-            <button style={{ marginLeft: "10px", color: "red" }}>
-=======
-            <button>Edit</button>
+<button onClick={() => navigate(`/edit-event/${event._id}`)}>
+  Edit
+</button>
+
+
 
             <button
               style={{ marginLeft: "10px", color: "red" }}
               onClick={() => handleDelete(event._id)}
             >
->>>>>>> origin/main
               Delete
             </button>
           </div>

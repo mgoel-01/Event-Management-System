@@ -12,6 +12,7 @@ import CreateEvent from "./components/CreateEvent.jsx";
 import Payment from "./components/Payment";
 import Success from "./components/Success";
 import MyBookings from "./components/MyBookings.jsx";
+import EditEvent from './components/EditEvent.jsx';
 
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
@@ -142,10 +143,6 @@ const App = () => {
          {location.pathname !== "/login" &&
           location.pathname !== "/signup" && <Navbar />}
     <Routes>
-<<<<<<< HEAD
-            <Route path="/login" element={<Login/>}/>
-            {/* <Route path="/details" element={<Details/>}/> */}
-=======
             <Route
   path="/"
   element={
@@ -156,7 +153,6 @@ const App = () => {
 />
             {/* <Route path="/details" element={<Details/>}/> */}
             <Route path="/login" element={<Login />} />
->>>>>>> origin/main
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/dashboard" element={<DashBoard events={events}/>}/>
             <Route path="/details/:id" element={<Details events={events}/>} />
@@ -180,6 +176,7 @@ const App = () => {
             <Route path="/payment" element={<Payment />} />
             <Route path="/success" element={<Success />} />
             <Route path="/my-bookings" element={<MyBookings />} />
+            <Route path="/edit-event/:id" element={<EditEvent />} />
          </Routes>
 
       </>
