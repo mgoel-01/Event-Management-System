@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 const Cards = (props) => {
 
   // console.log(props);   
+<<<<<<< HEAD
+=======
+  const role = props.role;
+>>>>>>> origin/main
 const navigate = useNavigate();
 const handleLoginBook = (e) =>
         {
@@ -27,6 +31,7 @@ const handleLoginBook = (e) =>
 
       <div className='bottomPart'>
         <p>Rs. {props.price}</p>
+<<<<<<< HEAD
       {props.isBooked ? (
   <button disabled>Booked ✅</button>
 ) : (
@@ -37,6 +42,28 @@ const handleLoginBook = (e) =>
     }}
   >
     Book Now
+=======
+      {role === "attendee" && (
+  props.isBooked ? (
+    <button disabled>Booked ✅</button>
+  ) : (
+    <button
+      onClick={() => {
+        navigate(`/details/${props.id}`);
+        localStorage.setItem("id", props.id);
+      }}
+    >
+      Book Now
+    </button>
+  )
+)}
+
+{role === "organizer" && (
+  <button
+    onClick={() => navigate(`/details/${props.id}`)}
+  >
+    View Details
+>>>>>>> origin/main
   </button>
 )}
       </div>
