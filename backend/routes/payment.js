@@ -24,11 +24,11 @@ router.post("/create-checkout-session", async (req, res) => {
           quantity: quantity,
         },
       ],
-      success_url: "http://event-management-system-eta-pink.vercel.app/success",
-      cancel_url: "http://event-management-system-eta-pink.vercel.app/cancel",
+      success_url: "https://event-management-system-eta-pink.vercel.app/success",
+      cancel_url: "https://event-management-system-eta-pink.vercel.app/cancel",
     });
 
-    res.json({ id: session.id });
+    res.json({ url: session.url });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Something went wrong" });

@@ -1,5 +1,5 @@
     import "./Details.css";
-    import {loadStripe, lordStripe} from '@stripe/stripe-js';
+    import {loadStripe} from '@stripe/stripe-js';
     import dateLogo from "../../assets/calendar.png";
     import timeLogo from "../../assets/clock.png";
     import venueLogo from "../../assets/location.png";
@@ -53,13 +53,8 @@
     const data = await res.json();
 
     // 🚀 redirect to Stripe checkout
-    const result = await stripe.redirectToCheckout({
-      sessionId: data.id,
-    });
+    window.location.href = data.url;
 
-    if (result.error) {
-      console.log(result.error.message);
-    }
 
   } catch (err) {
     console.log(err);
