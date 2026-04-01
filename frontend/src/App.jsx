@@ -147,8 +147,8 @@ const App = () => {
   path="/"
   element={
     localStorage.getItem("token")
-      ? <DashBoard events={events} />
-      : <Login />
+      ? <Navigate to="/dashboard" />
+      : <Navigate to="/login" />
   }
 />
             {/* <Route path="/details" element={<Details/>}/> */}

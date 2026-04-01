@@ -93,6 +93,9 @@ const handleSubmit = async (e) => {
           <option value="Business">Business</option>
           <option value="Workshop">Workshop</option>
           <option value="Adventure">Adventure</option>
+          <option value="Entertainment">Entertainmen</option>
+          <option value="Sport">Sport</option>
+          <option value="Art">Art</option>
         </select>
 
         <input
