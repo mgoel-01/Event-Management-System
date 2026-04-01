@@ -144,17 +144,24 @@ const App = () => {
           location.pathname !== "/signup" && <Navbar />}
     <Routes>
             <Route
-  path="/"
-  element={
-    localStorage.getItem("token")
-      ? <Navigate to="/dashboard" />
-      : <Navigate to="/login" />
-  }
-/>
+              path="/"
+              element={
+                localStorage.getItem("token")
+                  ? <Navigate to="/dashboard" />
+                  : <Navigate to="/login" />
+              }
+            />
             {/* <Route path="/details" element={<Details/>}/> */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup/>}/>
-            <Route path="/dashboard" element={<DashBoard events={events}/>}/>
+            <Route
+              path="/dashboard"
+              element={
+                localStorage.getItem("token")
+                  ? <DashBoard events={events} />
+                  : <Navigate to="/login" />
+              }
+            />
             <Route path="/details/:id" element={<Details events={events}/>} />
             {/* <Route path="/" element={<Navigate to="/login" />} /> */}
             <Route path="/profile" element={<Profile />} />
