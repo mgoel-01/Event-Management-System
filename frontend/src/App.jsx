@@ -14,7 +14,7 @@ import Success from "./components/Success";
 import MyBookings from "./components/MyBookings.jsx";
 import EditEvent from './components/EditEvent.jsx';
 import ProtectedRoute from "./components/ProtectedRoute.jsx"
-
+import Cancel from "./components/Cancel.jsx";
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
