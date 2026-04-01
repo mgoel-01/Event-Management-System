@@ -13,6 +13,7 @@ import Payment from "./components/Payment";
 import Success from "./components/Success";
 import MyBookings from "./components/MyBookings.jsx";
 import EditEvent from './components/EditEvent.jsx';
+import ProtectedRoute from "./components/ProtectedRoute.jsx"
 
 import {Routes,Route} from "react-router-dom"
 import { useLocation } from 'react-router-dom';
@@ -151,39 +152,58 @@ const App = () => {
                   : <Navigate to="/login" />
               }
             />
-            {/* <Route path="/details" element={<Details/>}/> */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup/>}/>
             <Route
               path="/dashboard"
               element={
-                localStorage.getItem("token")
-                  ? <DashBoard events={events} />
-                  : <Navigate to="/login" />
-              }
+                <ProtectedRoute>
+                  <DashBoard events={events} />
+               </ProtectedRoute>}
             />
-            <Route path="/details/:id" element={<Details events={events}/>} />
-            {/* <Route path="/" element={<Navigate to="/login" />} /> */}
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/details/:id" element={
+              <ProtectedRoute>
+              <Details events={events}/>
+              </ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute>
+                                              <Profile />
+                                            </ProtectedRoute>} />
             <Route path="/my-events"element={
+              <ProtectedRoute>
                 <OrganizerRoute>
                   <MyEvents />
                 </OrganizerRoute>
+              </ProtectedRoute>
               }
             />
 
             <Route
               path="/create-event"
               element={
+                <ProtectedRoute>
                 <OrganizerRoute>
                   <CreateEvent />
                 </OrganizerRoute>
+                </ProtectedRoute>
               }
             />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/my-bookings" element={<MyBookings />} />
-            <Route path="/edit-event/:id" element={<EditEvent />} />
+            <Route path="/payment" element={
+              <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>} />
+            <Route path="/success" element={
+              <ProtectedRoute>
+              <Success />
+            </ProtectedRoute>} />
+            <Route path="/my-bookings" element={
+              <ProtectedRoute>
+                <MyBookings />
+              </ProtectedRoute>} />
+            <Route path="/edit-event/:id" element={
+              <ProtectedRoute>
+                <EditEvent />
+              </ProtectedRoute>} />
+              <Route path="/cancel" element={<Cancel />} />
          </Routes>
 
       </>

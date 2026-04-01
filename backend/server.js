@@ -10,7 +10,7 @@ import authRoutes from "./routes/auth.js";
 import eventRoutes from "./routes/EventRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import bookingRoutes from "./routes/booking.js";
-
+import paymentRoutes from "./routes/payment.js";
 //Middleware
 app.use(cors());
 app.use(express.json());
@@ -26,6 +26,7 @@ app.use("/api/users", userRoutes);
 
 app.use("/api/bookings", bookingRoutes);
 
+app.use("/api/payment", paymentRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))

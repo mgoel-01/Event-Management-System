@@ -46,9 +46,9 @@ const Login = () =>
                         {/* <h2 id="login-app-title">EventBooking.com</h2> */}
                         <h3 id="login-title">Login</h3>
                         <label htmlFor="email">Email Address: </label>
-                        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         <label htmlFor="pass">Password:   </label>
-                        <input type="password" id="pass" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" id="pass" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                         <div id="buttonContainer">
                             <button type="submit" id="login">Login</button>
                         </div>

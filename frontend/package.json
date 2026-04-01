@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^6.1.0",
+    "@stripe/stripe-js": "^9.0.1",
     "axios": "^1.13.6",
     "lucide-react": "^0.563.0",
     "module_name": "^1.0.0",

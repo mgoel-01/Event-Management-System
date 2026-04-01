@@ -37,13 +37,13 @@ const Signup= ()=>{
                     <h2 id="signup-app-title">EventBooking.com</h2>
                     <h3 id="signup-title">Create Account</h3>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" autoComplete="off"/>
+                <input type="text" id="name" autoComplete="off" required/>
                 <label htmlFor="email">Email Address: </label>
-                    <input type="email" id="email" autoComplete="off"/>
+                    <input type="email" id="email" autoComplete="off" required/>
                 <br />
                 <div id="signup-role">
                 <label htmlFor="role">Role:</label>
-                <select name="role" id="role">
+                <select name="role" id="role" required>
                     <option value="attendee">Attendee</option>
                     <option value="organizer">Organizer</option>
                 </select>
@@ -51,7 +51,7 @@ const Signup= ()=>{
                 <br />
                 <br />
                 <label htmlFor="pass"> Create a strong password:   </label>
-                <input type="password" id="pass" autoComplete="new-password"/>
+                <input type="password" id="pass" autoComplete="new-password" required/>
                 <br />
                 <br />
                 <div id="buttonContainer">

@@ -1,4 +1,5 @@
     import "./Details.css";
+    import {loadStripe, lordStripe} from '@stripe/stripe-js';
     import dateLogo from "../../assets/calendar.png";
     import timeLogo from "../../assets/clock.png";
     import venueLogo from "../../assets/location.png";
@@ -32,7 +33,38 @@
 
         console.log("Events:", props.events);
         console.log("ID from URL:", id);
+        const handlePayment = async () => {
+  try {
+    const stripe = await loadStripe("pk_test_51THOGq3oeHHAjGzexzVzfETUpDQVN5t5ZiS04LomMx1wMZUQ54kSx7p6ltX0ESHbZnEel7CgyPBCSxkFufnbUdTb004nNX6Psc");
 
+    // 🔥 call backend to create checkout session
+    const res = await fetch("https://event-management-system-613m.onrender.com/api/payment/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: selected.title,
+        price: total,   // total amount
+        quantity: quantity,
+      }),
+    });
+
+    const data = await res.json();
+
+    // 🚀 redirect to Stripe checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: data.id,
+    });
+
+    if (result.error) {
+      console.log(result.error.message);
+    }
+
+  } catch (err) {
+    console.log(err);
+  }
+};
         useEffect(() => {
   const fetchEvent = async () => {
     try {
@@ -141,13 +173,7 @@
                                                                         </span>
                                                                     </div>
 
-                                                                    <button id="checkout-btn" onClick={() => navigate("/payment", {
-                                                                            state: {
-                                                                            event: selected,
-                                                                            quantity: quantity,
-                                                                            total: total
-                                                                            }
-                                                                        })}>
+                                                                    <button id="checkout-btn" onClick={handlePayment}>
                                                                         Continue to Checkout
                                                                     </button>
 
