@@ -32,7 +32,11 @@ import jwt from "jsonwebtoken";
 router.post("/login",async(req,res)=>{
     try{
         const {email,password}=req.body;
-        const user=await User.findOne({email});
+        console.log("EMAIL RECEIVED:", email);
+
+        const user = await User.findOne({ email });
+
+        console.log("USER FOUND:", user);
         if(!user){
             return res.status(400).json({message: "User not found"});
         }
