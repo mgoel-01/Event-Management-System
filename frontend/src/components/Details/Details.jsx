@@ -51,7 +51,21 @@
     });
 
     const data = await res.json();
-
+    
+    localStorage.setItem(
+  "pendingBooking",
+  JSON.stringify({
+    userId: JSON.parse(localStorage.getItem("user")).id,
+    eventId: selected._id,
+    eventName: selected.title,
+    quantity,
+    totalAmount: total
+  })
+);
+console.log(
+  "PENDING BOOKING SAVED:",
+  localStorage.getItem("pendingBooking")
+);
     // 🚀 redirect to Stripe checkout
     window.location.href = data.url;
 
