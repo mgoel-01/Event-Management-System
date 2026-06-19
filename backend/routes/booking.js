@@ -6,28 +6,33 @@
 
   // ✅ CREATE BOOKING
   router.post("/", async (req, res) => {
-    try {
-      const { userId, eventId, eventName, quantity, totalAmount } = req.body;
+  try {
+    console.log("BOOKING BODY:", req.body);
 
-      const booking = new Booking({
-        userId,
-        eventId,
-        eventName,
-        quantity,
-        totalAmount
-      });
+    const { userId, eventId, eventName, quantity, totalAmount } = req.body;
 
-      await booking.save();
+    const booking = new Booking({
+      userId,
+      eventId,
+      eventName,
+      quantity,
+      totalAmount
+    });
 
-      res.status(201).json({
-        message: "Booking stored successfully",
-        booking
-      });
+    await booking.save();
 
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+    console.log("BOOKING SAVED");
+
+    res.status(201).json({
+      message: "Booking stored successfully",
+      booking
+    });
+
+  } catch (error) {
+    console.log("BOOKING ERROR:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
   router.get("/user/:userId", async (req, res) => {
     try {
