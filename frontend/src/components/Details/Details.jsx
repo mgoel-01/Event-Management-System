@@ -38,9 +38,6 @@
     const stripe = await loadStripe("pk_test_51THOGq3oeHHAjGzexzVzfETUpDQVN5t5ZiS04LomMx1wMZUQ54kSx7p6ltX0ESHbZnEel7CgyPBCSxkFufnbUdTb004nNX6Psc");
 
     // 🔥 call backend to create checkout session
-    console.log("SELECTED:", selected);
-console.log("TOTAL:", total);
-console.log("QUANTITY:", quantity);
     const res = await fetch("https://event-management-system-613m.onrender.com/api/payment/create-checkout-session", {
       method: "POST",
       headers: {
@@ -54,7 +51,6 @@ console.log("QUANTITY:", quantity);
     });
 
     const data = await res.json();
-    console.log("STRIPE RESPONSE:", data);
     localStorage.setItem(
   "pendingBooking",
   JSON.stringify({
@@ -64,10 +60,6 @@ console.log("QUANTITY:", quantity);
     quantity,
     totalAmount: total
   })
-);
-console.log(
-  "PENDING BOOKING SAVED:",
-  localStorage.getItem("pendingBooking")
 );
     // 🚀 redirect to Stripe checkout
     window.location.href = data.url;

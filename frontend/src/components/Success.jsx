@@ -10,9 +10,6 @@ const Success = () => {
       const bookingData = JSON.parse(
         localStorage.getItem("pendingBooking")
       );
-
-      console.log("BOOKING DATA:", bookingData);
-
       const res = await fetch(
         "https://event-management-system-613m.onrender.com/api/bookings",
         {
@@ -25,9 +22,6 @@ const Success = () => {
       );
 
       const data = await res.json();
-
-      console.log("BOOKING RESPONSE:", data);
-      console.log("STATUS:", res.status);
 
     } catch (err) {
       console.log("BOOKING ERROR:", err);
